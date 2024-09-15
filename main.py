@@ -14,21 +14,7 @@ home = """
 """
 
 # Dados iniciais em DataFrame
-tabela = pd.DataFrame(
-    data={
-        "cultura": [],
-        "largura": [],
-        "comprimento": [],
-        "area": [],
-        "fileiras": [],
-        "plantas_por_fileira": [],
-        "total_plantas": [],
-        "insumo_total": [],
-        "tempo_plantio": [],
-        "espacamento_fileira_cm": [],
-        "espacamento_planta_cm": []
-    }
-)
+tabela = pd.read_csv('dados.csv', sep=";")
 
 # Função para calcular a área
 def calcular_area(largura, comprimento):
@@ -91,6 +77,7 @@ def menu():
 
             if area and fileiras and plantas_por_fileira and insumo_total is not None and tempo_plantio:
                 nova_linha = {
+                    "id": tabela['id'].count() + 1,
                     "cultura": [cultura],
                     "largura": [largura],
                     "comprimento": [comprimento],
@@ -121,9 +108,19 @@ def menu():
             if tabela.empty:
                 print("Nenhum dado disponível.")
             else:
-                print("\n========== Dados das Culturas Armazenadas ==========")
-                print(tabela)
-                print("===================================================")
+                for index, linha in tabela.iterrows():
+                    print(f"\nID {index + 1}:")
+                    print(f"  Cultura: {linha['cultura']}")
+                    print(f"  Largura: {linha['largura']} metros")
+                    print(f"  Comprimento: {linha['comprimento']} metros")
+                    print(f"  Área: {linha['area']} m²")
+                    print(f"  Fileiras: {linha['fileiras']}")
+                    print(f"  Plantas por Fileira: {linha['plantas_por_fileira']}")
+                    print(f"  Total de Plantas: {linha['total_plantas']}")
+                    print(f"  Insumo Total: {linha['insumo_total']} unidades")
+                    print(f"  Tempo de Plantio: {linha['tempo_plantio']} dias")
+                    print(f"  Espaçamento entre Fileiras: {linha['espacamento_fileira_cm']} cm")
+                    print(f"  Espaçamento entre Plantas: {linha['espacamento_planta_cm']} cm")
 
         elif opcao == '3':
             # Atualizar dados
@@ -158,8 +155,27 @@ def menu():
             # Deletar dados
             index = int(input("Digite o número da cultura que deseja deletar: ")) - 1
             if 0 <= index < len(tabela):
-                tabela = tabela.drop(index).reset_index(drop=True)
-                print("Cultura deletada com sucesso.")
+                # Mostrando o registro que será deletado
+                    print(f"Você selecionou o registro {index + 1}:\n")
+                    print(f"  Cultura: {tabela.loc[index, 'cultura']}")
+                    print(f"  Largura: {tabela.loc[index, 'largura']} metros")
+                    print(f"  Comprimento: {tabela.loc[index, 'comprimento']} metros")
+                    print(f"  Área: {tabela.loc[index, 'area']} m²")
+                    print(f"  Fileiras: {tabela.loc[index, 'fileiras']}")
+                    print(f"  Plantas por Fileira: {tabela.loc[index, 'plantas_por_fileira']}")
+                    print(f"  Total de Plantas: {tabela.loc[index, 'total_plantas']}")
+                    print(f"  Insumo Total: {tabela.loc[index, 'insumo_total']} unidades")
+                    print(f"  Tempo de Plantio: {tabela.loc[index, 'tempo_plantio']} dias")
+                    print(f"  Espaçamento entre Fileiras: {tabela.loc[index, 'espacamento_fileira_cm']} cm")
+                    print(f"  Espaçamento entre Plantas: {tabela.loc[index, 'espacamento_planta_cm']} cm")
+
+                    # Solicita confirmação do usuário
+                    confirmacao = input(f"Tem certeza que deseja deletar o registro {index + 1}? (s/n): ").strip().lower()
+                    if confirmacao == 's':
+                        tabela = tabela.drop(index).reset_index(drop=True)
+                        print("Cultura deletada com sucesso.")
+                    else:
+                        print("Operação cancelada. Nenhum dado foi deletado.")
             else:
                 print("Índice inválido.")
 
