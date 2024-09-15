@@ -22,6 +22,7 @@ else:
     dados = pd.DataFrame(columns=["id", "cultura", "largura", "comprimento", "area", "fileiras",
                                   "plantas_por_fileira", "total_plantas", "insumo_total", "tempo_plantio",
                                   "espacamento_fileira_cm", "espacamento_planta_cm"])
+    dados.to_csv('dados.csv', sep=';', index=False)
 
 # Função para calcular a área
 def calcular_area(largura, comprimento):
@@ -41,7 +42,8 @@ def calcular_plantas_por_fileira(comprimento, espacamento_planta_cm):
 def calcular_insumos(area, cultura):
     if cultura.lower() == "alface":
         insumo_por_m2 = 3  # Exemplo: 3 kg de cama de aviário por m² para alface
-        return area * insumo_por_m2
+        resultado = area * insumo_por_m2
+        return resultado
     elif cultura.lower() == "tomate":
         insumo_por_m2 = 0.5  # Exemplo: 0.5 litros de pesticida por m² para tomate
         return area * insumo_por_m2
@@ -92,7 +94,7 @@ def obter_inteiro(mensagem):
 
 # Função para obter a cultura válida
 def obter_cultura():
-    culturas_disponiveis = ['alface', 'tomate']
+    culturas_disponiveis = ['alface', 'tomate'] 
     while True:
         cultura = input("Digite o tipo de cultura (Alface/Tomate): ").strip().lower()
         if cultura in culturas_disponiveis:
@@ -236,16 +238,16 @@ def menu():
 
                 # Exibir comparação dos valores
                 print("\nComparação dos valores:")
-                print(f"Largura: {old_largura} metros                 ----->   Largura: {nova_largura} metros")
-                print(f"Comprimento: {old_comprimento} metros             ----->   Comprimento: {novo_comprimento} metros")
-                print(f"Área: {old_area} m²                      ----->   Área: {nova_area} m²")
-                print(f"Fileiras: {old_fileiras}                       ----->   Fileiras: {novas_fileiras}")
-                print(f"Plantas por Fileira: {old_plantas_por_fileira}           ----->   Plantas por Fileira: {novas_plantas_por_fileira}")
-                print(f"Total de Plantas: {old_total_plantas}           ----->   Total de Plantas: {novo_total_plantas}")
-                print(f"Insumo Total: {old_insumo_total} unidades       ----->   Insumo Total: {novo_insumo_total} unidades")
-                print(f"Tempo de Plantio: {old_tempo_plantio} dias           ----->   Tempo de Plantio: {old_tempo_plantio} dias")
-                print(f"Espaçamento entre Fileiras: {old_espacamento_fileira_cm} cm   ----->   Espaçamento entre Fileiras: {novo_espacamento_fileira_cm} cm")
-                print(f"Espaçamento entre Plantas: {old_espacamento_planta_cm} cm    ----->   Espaçamento entre Plantas: {novo_espacamento_planta_cm} cm")
+                print(f"Largura: {old_largura} metros   -->   Largura: {nova_largura} metros")
+                print(f"Comprimento: {old_comprimento} metros   -->   Comprimento: {novo_comprimento} metros")
+                print(f"Área: {old_area} m²   -->   Área: {nova_area} m²")
+                print(f"Fileiras: {old_fileiras}   -->   Fileiras: {novas_fileiras}")
+                print(f"Plantas por Fileira: {old_plantas_por_fileira}   -->   Plantas por Fileira: {novas_plantas_por_fileira}")
+                print(f"Total de Plantas: {old_total_plantas}   -->   Total de Plantas: {novo_total_plantas}")
+                print(f"Insumo Total: {old_insumo_total} unidades   -->   Insumo Total: {novo_insumo_total} unidades")
+                print(f"Tempo de Plantio: {old_tempo_plantio} dias   -->   Tempo de Plantio: {old_tempo_plantio} dias")
+                print(f"Espaçamento entre Fileiras: {old_espacamento_fileira_cm} cm   -->   Espaçamento entre Fileiras: {novo_espacamento_fileira_cm} cm")
+                print(f"Espaçamento entre Plantas: {old_espacamento_planta_cm} cm   -->   Espaçamento entre Plantas: {novo_espacamento_planta_cm} cm")
 
                 # Solicitar confirmação
                 confirmacao = input("Tem certeza que deseja aplicar as alterações? (s/n): ").strip().lower()
