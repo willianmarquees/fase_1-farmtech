@@ -42,11 +42,12 @@ def calcular_plantas_por_fileira(comprimento, espacamento_planta_cm):
 def calcular_insumos(area, cultura):
     if cultura.lower() == "alface":
         insumo_por_m2 = 3  # Exemplo: 3 kg de cama de aviário por m² para alface
-        resultado = area * insumo_por_m2
+        resultado = float(area * insumo_por_m2)
         return resultado
     elif cultura.lower() == "tomate":
         insumo_por_m2 = 0.5  # Exemplo: 0.5 litros de pesticida por m² para tomate
-        return area * insumo_por_m2
+        resultado = float(area * insumo_por_m2)
+        return resultado
     else:
         print("Cultura não suportada.")
         return None
@@ -314,9 +315,6 @@ def menu():
             dados.to_csv('dados.csv', sep=';', index=False)
             print("Saindo do programa...")
             break
-
-        else:
-            print("Opção inválida. Tente novamente.")
 
 # Executando o menu
 menu()
