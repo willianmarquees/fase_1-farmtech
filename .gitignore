@@ -1,5 +1,3 @@
 venv/
-dev.ipynb
-test.py
-calculos.csv
-dados.csv
+test/
+dev/
