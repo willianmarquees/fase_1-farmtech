@@ -1,0 +1,11 @@
+"date","weekday","max","min","humidity","cloudiness","rain","rain_probability","wind_speedy","sunrise","sunset","moon_phase","description","condition","average_min_max"
+"17/09","Ter",19,14,60,87,0.13,20,"7.03 km/h","06:00 am","06:01 pm","full","Chuvas esparsas","rain",16.5
+"18/09","Qua",22,15,57,69,0,52,"5.65 km/h","05:59 am","06:01 pm","full","Tempo nublado","cloudly_day",18.5
+"19/09","Qui",27,16,46,0,0,0,"6.06 km/h","05:58 am","06:01 pm","full","Tempo limpo","clear_day",21.5
+"20/09","Sex",32,18,24,8,0.26,30,"7.85 km/h","05:57 am","06:01 pm","waning_gibbous","Chuvas esparsas","rain",25
+"21/09","Sáb",23,19,66,100,1.42,77,"3.72 km/h","05:56 am","06:02 pm","waning_gibbous","Chuvas esparsas","rain",21
+"22/09","Dom",34,19,28,10,0,0,"4.53 km/h","05:55 am","06:02 pm","waning_gibbous","Tempo limpo","clear_day",26.5
+"23/09","Seg",33,22,40,99,0,0,"5.49 km/h","05:54 am","06:02 pm","waning_gibbous","Tempo nublado","cloudly_day",27.5
+"24/09","Ter",36,21,18,63,0,0,"4.47 km/h","05:53 am","06:03 pm","last_quarter","Tempo nublado","cloudly_day",28.5
+"25/09","Qua",39,24,15,6,0,0,"5.51 km/h","05:52 am","06:03 pm","last_quarter","Tempo limpo","clear_day",31.5
+"26/09","Qui",35,19,21,12,0.18,20,"9.54 km/h","05:51 am","06:03 pm","last_quarter","Chuvas esparsas","rain",27
