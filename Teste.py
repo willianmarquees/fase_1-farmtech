@@ -4,7 +4,7 @@ from pydub import AudioSegment
 from google.cloud import translate_v2 as translate
 
 # Substitua pela sua chave de API do AssemblyAI
-aai.settings.api_key = "cbfd65389fe64df280955d4ed88e9669"
+aai.settings.api_key = "XXXX"
 
 # Defina a variável de ambiente para as credenciais do Google Cloud
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "/Users/macforpc/Downloads/Testando.json"
